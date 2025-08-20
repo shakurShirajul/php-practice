@@ -1,11 +1,13 @@
 <?php
 $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
-$routes = require 'routes.php';
+$routes = require base_path('routes.php');
 
-
+// dd($routes);
 function routeToController($uri, $routes)
 {
+    // dd($uri);
     if (array_key_exists($uri, $routes)) {
+        // dd($routes[$uri]);
         require $routes[$uri];
     } else {
         var_dump($uri);

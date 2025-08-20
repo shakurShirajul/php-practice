@@ -1,4 +1,9 @@
 <?php
+
+namespace Core;
+
+use PDO;
+
 class Database
 {
     public $connection;
@@ -9,8 +14,6 @@ class Database
     {
         //It take input data, numeric_prefix, argument_separator
         $dsn = 'mysql:' . http_build_query($config, '', ';');
-
-        // dd($dsn);
 
         $this->connection = new PDO($dsn, $username, $password, [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
